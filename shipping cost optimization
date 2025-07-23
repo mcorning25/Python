@@ -1,0 +1,41 @@
+# shipping.py - Sal's Shippers Cost Calculator
+
+# Get the weight of the package from the user
+weight = 4.5  # Replace 4.5 with any test weight you want to use
+
+# Calculate Ground Shipping cost
+if weight <= 2:
+    ground_shipping = 20.00 + (weight * 1.50)
+elif weight <= 6:
+    ground_shipping = 20.00 + (weight * 3.00)
+elif weight <= 10:
+    ground_shipping = 20.00 + (weight * 4.00)
+else:
+    ground_shipping = 20.00 + (weight * 4.75)
+
+# Calculate Ground Shipping Premium cost
+ground_shipping_premium = 125.00
+
+# Calculate Drone Shipping cost
+if weight <= 2:
+    drone_shipping = weight * 4.50
+elif weight <= 6:
+    drone_shipping = weight * 9.00
+elif weight <= 10:
+    drone_shipping = weight * 12.00
+else:
+    drone_shipping = weight * 14.25
+
+# Display all shipping costs
+print(f"\nShipping costs for {weight} lbs:")
+print(f"Ground Shipping: ${ground_shipping:.2f}")
+print(f"Ground Shipping Premium: ${ground_shipping_premium:.2f}")
+print(f"Drone Shipping: ${drone_shipping:.2f}")
+
+# Find the cheapest option
+if ground_shipping <= ground_shipping_premium and ground_shipping <= drone_shipping:
+    print(f"\nCheapest option: Ground Shipping at ${ground_shipping:.2f}")
+elif ground_shipping_premium <= ground_shipping and ground_shipping_premium <= drone_shipping:
+    print(f"\nCheapest option: Ground Shipping Premium at ${ground_shipping_premium:.2f}")
+else:
+    print(f"\nCheapest option: Drone Shipping at ${drone_shipping:.2f}")
